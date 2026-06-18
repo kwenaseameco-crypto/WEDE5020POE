@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misunderstood World - Store Locator</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="style2.css" />
+</head>
+<body>
+    <div class="loader-wrapper">
+        <div class="loader">
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <p class="loader-text">Finding Your Way...</p>
+        </div>
+    </div>
+
+    <div class="stars-container">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo-icon">🌍</div>
+                <h1>Misunderstood World</h1>
+            </div>
+            <p class="subtitle">Discover Our Unique Location & Special Offerings</p>
+            <div class="header-divider">
+                <span></span>
+                <span class="diamond">◆</span>
+                <span></span>
+            </div>
+        </header>
+
+        <div class="map-wrapper">
+            <div class="map-container">
+                <div id="map"></div>
+                <div class="store-info" id="storeInfo">
+                    <div class="store-info-header">
+                        <div class="store-icon">🏪</div>
+                        <div>
+                            <h2>Misunderstood World</h2>
+                            <p class="tagline">Where curiosity meets wonder</p>
+                        </div>
+                    </div>
+                    <div class="info-divider"></div>
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <div>
+                            <strong>Address</strong>
+                            <p>1 Seymour Street, Observatory, Cape Town, 7925</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">🕒</span>
+                        <div>
+                            <strong>Hours</strong>
+                            <p>Mon-Sat: 10AM - 8PM</p>
+                            <p>Sun: 12PM - 6PM</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">📞</span>
+                        <div>
+                            <strong>Phone</strong>
+                            <p>(+27) 83-404-3285</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">📧</span>
+                        <div>
+                            <strong>Email</strong>
+                            <p>misunderstoodworld@gmail.com</p>
+                        </div>
+                    </div>
+                    <button class="directions-btn" id="directionsBtn">
+                        <span>Get Directions</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </div>
+                <div class="map-overlay-controls">
+                    <button class="map-btn" id="centerBtn" title="Center on Store">🎯</button>
+                    <button class="map-btn" id="toggleInfoBtn" title="Toggle Info Panel">ℹ️</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="features-section">
+            <div class="feature-card" data-delay="0">
+                <div class="feature-icon">🎨</div>
+                <h3>Unique Collections</h3>
+                <p>Explore our one-of-a-kind collections that you won't find anywhere else.</p>
+            </div>
+            <div class="feature-card" data-delay="200">
+                <div class="feature-icon">✨</div>
+                <h3>Special Offerings</h3>
+                <p>Weekly special offerings and exclusive deals for our loyal customers.</p>
+            </div>
+            <div class="feature-card" data-delay="400">
+                <div class="feature-icon">🌟</div>
+                <h3>Expert Guidance</h3>
+                <p>Our knowledgeable staff is always ready to help you find the perfect item.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2024 Misunderstood World. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
