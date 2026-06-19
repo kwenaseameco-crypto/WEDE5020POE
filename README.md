@@ -13,3 +13,10 @@ _**PART 2 - Secondary Submission**_
 - I ensured website compatibility across all mobile devices
 - Applied visual styles
 - Created a layout structure
+
+_**PART 3 - Final Submission**_
+- Forms were created and titled contact.html and enquiry.html
+- A location html was created for the users to be able to locate the business
+- The home page was improved
+- I created a sitemap and robots text file to help search engine understand the structure of my website
+- I changed some of my webpages and website project proposal according to the feedback received from the marking of Part 1 and Part2
