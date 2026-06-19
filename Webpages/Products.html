@@ -4,58 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styler.css">
     <title>Misunderstood World</title>
 </head>
 
-<body>
-    <!-- Backdrop overlay for mobile menu-->
-    <nav>
-        <div class="navbar">
-            <ul class="nav-links">
-                <li><a href="/Webpages/Home.html">Home</a></li>
-                <li><a href="/Webpages/Account.html">Account</a></li>
-                <li><a href="/Webpages/Cart.html">Cart</a></li>
-            </ul>
-
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
+<body data-theme="light">
+<header class="mw-header">
+    <div class="logo">Misunderstood World</div>
+    <nav class="mw-nav">
+        <a href="/Webpages/Home.html">Home</a>
+        <a href="/Webpages/Cart.html">Cart</a>
+        <a href="/Webpages/Products.html">Products</a>
+        <a href="/Webpages/Location.html">Location</a>
+        <a href="/Webpages/Account.html">Account</a>
+        <a href="/Webpages/Enquiry.html">Enquiry</a>
+        <a href="/Webpages/Contact.html">Contact</a>
     </nav>
+    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+  </header>
 
-    <div class="content">
-        <h1>Misundertood World</h1>
-    </div>
-
-    <script>
-        const hamburger = document.queryselector('.hamburger');
-        const navlinks = document.queryselector('.nav-links');
-        const menuBackdrop = document.queryselector('.menu-backdrop');
-
-        hamburger.addeventListener('click', () => {
-            hamburger.classlist.toggle('active');
-            navLinks.classlist.toggle('active');
-            menuBackdrop.classList.toggle('active');
-        });
-        // close menu when clicking on backdrop//
-        menuBackdrop.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-            menuBackdrop.classList.remove('active');
-        });
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classlist.remove('active');
-                navLinks.classList.remove('active');
-                menuBackdrop.classList.remove('active');
-            });
-        });
-    </script>
     <div class="product-grid">
         <div class="product-card">
             <div class="product-image">
@@ -76,6 +43,28 @@
                 <h3 class="product-name">Misunderstood Caps</h3>
                 <p class="product-price">R219.00</p>
                 <button class="add-to-cart" onclick="addToCart('cap', 219.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/Images/Crew.jpg" alt="Brown Misunderstood Hoodie">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Misunderstood Hoodie</h3>
+                <p class="product-price">R599.00</p>
+                <button class="add-to-cart" onclick="addToCart('hoodie', 599.00)">Add to Cart</button>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/Images/NeonLights.jpg" alt="Misunderstood Baseball Shirt">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Misunderstood Baseball Shirt</h3>
+                <p class="product-price">R349.00</p>
+                <button class="add-to-cart" onclick="addToCart('shirt', 349.00)">Add to Cart</button>
             </div>
         </div>
 

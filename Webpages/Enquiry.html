@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Send a Message - Misunderstood World</title>
+  <link rel="stylesheet" href="enquiry-style.css">
+</head>
+<body data-theme="light">
+  
+  <!-- HEADER -->
+  <header class="mw-header">
+<header class="mw-header">
+    <div class="logo">Misunderstood World</div>
+    <nav class="mw-nav">
+        <a href="/Webpages/Home.html">Home</a>
+        <a href="/Webpages/Cart.html">Cart</a>
+        <a href="/Webpages/Products.html">Products</a>
+        <a href="/Webpages/Location.html">Location</a>
+        <a href="/Webpages/Account.html">Account</a>
+        <a href="/Webpages/Enquiry.html">Enquiry</a>
+        <a href="/Webpages/Contact.html">Contact</a>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+  </header>
+
+  <main>
+    
+    <!-- Hero Section -->
+    <section class="section message-hero">
+      <h1>Send us a Message</h1>
+      <p>We'd love to hear from you. Send us your thoughts, feedback, or questions.</p>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section message-main">
+      
+      <!-- Left: Form -->
+      <div class="message-form-wrapper">
+        
+        <form id="message-form" class="message-form" novalidate>
+          
+          <!-- Name Field -->
+          <div class="form-group">
+            <label for="sender-name" class="form-label">Your Name *</label>
+            <input 
+              type="text" 
+              id="sender-name" 
+              name="sender-name" 
+              class="form-input"
+              placeholder="John Doe"
+              required
+              minlength="2"
+              maxlength="50"
+            />
+            <span class="error-message" id="sender-name-error"></span>
+          </div>
+
+          <!-- Email Field -->
+          <div class="form-group">
+            <label for="sender-email" class="form-label">Your Email *</label>
+            <input 
+              type="email" 
+              id="sender-email" 
+              name="sender-email" 
+              class="form-input"
+              placeholder="your.email@example.com"
+              required
+            />
+            <span class="error-message" id="sender-email-error"></span>
+          </div>
+
+          <!-- Phone Field (Optional) -->
+          <div class="form-group">
+            <label for="sender-phone" class="form-label">Phone Number (Optional)</label>
+            <input 
+              type="tel" 
+              id="sender-phone" 
+              name="sender-phone" 
+              class="form-input"
+              placeholder="+27 00 000 0000"
+            />
+            <span class="error-message" id="sender-phone-error"></span>
+          </div>
+
+          <!-- Message Type -->
+          <div class="form-group">
+            <label for="message-type" class="form-label">Type of Message *</label>
+            <select id="message-type" name="message-type" class="form-input" required>
+              <option value="">-- Select message type --</option>
+              <option value="feedback">Feedback</option>
+              <option value="suggestion">Suggestion</option>
+              <option value="complaint">Complaint</option>
+              <option value="collaboration">Collaboration Inquiry</option>
+              <option value="media-inquiry">Media Inquiry</option>
+              <option value="general">General Question</option>
+              <option value="other">Other</option>
+            </select>
+            <span class="error-message" id="message-type-error"></span>
+          </div>
+
+          <!-- Subject Line -->
+          <div class="form-group">
+            <label for="message-subject" class="form-label">Subject *</label>
+            <input 
+              type="text" 
+              id="message-subject" 
+              name="message-subject" 
+              class="form-input"
+              placeholder="What is this message about?"
+              required
+              minlength="5"
+              maxlength="100"
+            />
+            <span class="error-message" id="message-subject-error"></span>
+          </div>
+
+          <!-- Message Body -->
+          <div class="form-group">
+            <label for="message-body" class="form-label">Your Message *</label>
+            <textarea 
+              id="message-body" 
+              name="message-body" 
+              class="form-input form-textarea"
+              placeholder="Write your message here... Be as detailed as you'd like."
+              required
+              minlength="20"
+              maxlength="5000"
+              rows="8"
+            ></textarea>
+            <span class="error-message" id="message-body-error"></span>
+            <span class="char-count" id="char-count">0 / 5000</span>
+          </div>
+
+          <!-- Attachment Info -->
+          <div class="form-group info-box">
+            <p>
+              <strong>📎 Attachments:</strong> If you need to attach files, 
+              please email misunderstoodworld@gmail.com directly or mention your file needs below.
+            </p>
+          </div>
+
+          <!-- Privacy Notice -->
+          <div class="form-group checkbox-group">
+            <label class="checkbox-label">
+              <input 
+                type="checkbox" 
+                name="privacy-agree" 
+                id="privacy-agree"
+                required
+              />
+              <span>I agree that my information will be used to respond to this message *</span>
+            </label>
+            <span class="error-message" id="privacy-agree-error"></span>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="send-btn">
+              Send Message
+            </button>
+            <button type="reset" class="btn btn-secondary">
+              Clear Form
+            </button>
+          </div>
+
+          <!-- Loading State -->
+          <div class="form-loading" id="form-loading">
+            <span class="spinner"></span>
+            <p>Preparing your email...</p>
+          </div>
+
+        </form>
+
+        <!-- Response Message -->
+        <div id="form-response" class="form-response" style="display: none;"></div>
+      </div>
+
+      <!-- Right: Email Preview -->
+      <aside class="email-preview-wrapper">
+        <h3>📧 Email Preview</h3>
+        <p class="preview-subtitle">This is how your message will appear:</p>
+        
+        <div class="email-preview">
+          <div class="email-header">
+            <div class="email-field">
+              <span class="email-label">From:</span>
+              <span class="email-value" id="preview-from">your.email@example.com</span>
+            </div>
+            <div class="email-field">
+              <span class="email-label">To:</span>
+              <span class="email-value">misunderstoodworld@gmail.com</span>
+            </div>
+            <div class="email-field">
+              <span class="email-label">Subject:</span>
+              <span class="email-value" id="preview-subject">[Message Subject]</span>
+            </div>
+            <div class="email-field">
+              <span class="email-label">Type:</span>
+              <span class="email-value" id="preview-type">[Message Type]</span>
+            </div>
+          </div>
+
+          <div class="email-body">
+            <div class="email-sender-info">
+              <p><strong>From:</strong> <span id="preview-name">Your Name</span></p>
+              <p><strong>Email:</strong> <span id="preview-email">your.email@example.com</span></p>
+              <p id="preview-phone-container" style="display: none;">
+                <strong>Phone:</strong> <span id="preview-phone"></span>
+              </p>
+            </div>
+
+            <div class="email-message-body">
+              <p id="preview-message">Your message will appear here...</p>
+            </div>
+
+            <div class="email-footer">
+              <p style="color: gray; font-size: 0.85rem;">
+                Sent from Misunderstood World Message System<br/>
+                <span id="preview-timestamp"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="preview-info">
+          <p>✨ Updates in real-time as you type</p>
+        </div>
+      </aside>
+
+    </section>
+
+  </main>
+
+  <!-- Modal and roots -->
+  <div id="modal-root"></div>
+  <div id="lightbox-root"></div>
+
+  <!-- Message Form Script -->
+  <script src="enquiry-form.js"></script>
+
+</body>
+</html>

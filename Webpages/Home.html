@@ -1,108 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Misunderstood World</title>
+  <meta charset="UTF-8" />
+  <title>Misunderstood World</title>
+  <link rel="stylesheet" href="styler.css"/>
 </head>
-
-<body>
-    <!-- Backdrop overlay for mobile menu-->
-    <nav>
-        <div class="navbar">
-            <ul class="nav-links">
-                <li><a href="/Webpages/Products.html">Products</a></li>
-                <li><a href="/Webpages/Account.html">Account</a></li>
-                <li><a href="/Webpages/Cart.html">Cart</a></li>
-            </ul>
-
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
+<body data-theme="light">
+<header class="mw-header">
+    <div class="logo">Misunderstood World</div>
+    <nav class="mw-nav">
+        <a href="/Webpages/Home.html">Home</a>
+        <a href="/Webpages/Cart.html">Cart</a>
+        <a href="/Webpages/Products.html">Products</a>
+        <a href="/Webpages/Location.html">Location</a>
+        <a href="/Webpages/Account.html">Account</a>
+        <a href="/Webpages/Enquiry.html">Enquiry</a>
+        <a href="/Webpages/Contact.html">Contact</a>
     </nav>
+    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+  </header>
 
-    <div class="content">
-        <h1>Misundertood World</h1>
-    </div>
+  <main>
+    <section id="hero" class="section hero">
+      <h1>Welcome to Misunderstood World</h1>
+      <p>Where stories that don't fit in finally belong.</p>
+      <button id="scroll-to-collection">Explore Collection</button>
+    </section>
 
-    <p>Misunderstood World didn't start as a brand, it started as a feeling.
+    <section class="section controls">
+      <input
+        type="search"
+        id="search-input"
+        placeholder="Search designs, stories..."
+        autocomplete="off"
+      />
+      <select id="category-filter">
+        <option value="all">All</option>
+        <option value="streetwear">Streetwear</option>
+        <option value="art">Art</option>
+        <option value="story">Stories</option>
+      </select>
+    </section>
 
-        Back in the early 2010s, when loud graphics and flashy logos ruled streetwear, two teenagers sat in a small
-        bedroom with nothing but a cracked laptop, a sketchbook, and a different vision. They weren't the loudest in the
-        room, not the ones chasing trends or attention. If anything, they were overlooked, misread, underestimated and
-        constantly told they were “too quiet” or “too different.” That label stuck with them. Misunderstood.
-    </p>
-    </br>
-    <p>
-        Instead of trying to fit in, they leaned into it.
-    </p>
-    </br>
-    <p>
-        They believed that real style didn't have to scream. It could whisper and still be heard. Clean lines. Subtle
-        details. Pieces that looked simple at first glance but carried weight when you really saw them. That's where
-        Misunderstood World was born - in the idea that minimalism could speak louder than chaos.
-    </p>
-    </br>
-    <p>They started small. Printing a handful of tees with barely just enough to make someone look twice. No big logos,
-        no explanations. If you understood it, you understood it. If you didn't, that was the point.
+    <section id="brand-grid" class="section grid-section">
+      <h2>Featured Pieces</h2>
+      <div id="card-container" class="card-container">
+        <!-- Cards will be injected here by JS -->
+      </div>
+    </section>
 
-        At first, people didn't get it.
-    </p>
-    </br>
-    <p style="color: black;">
-        “Too plain.”
-        “Too quiet.”
-        “Where's the design?”
-    </p>
-    </br>
-    <p>But slowly, the right people started noticing. The ones who didn't need validation. The ones who moved
-        differently. The ones who knew that not everything valuable has to be obvious.
+    <section id="gallery" class="section gallery-section">
+        <h2>Visual Gallery</h2>
+        <p class="gallery-intro">
+            Glimpses of the Misunderstood World — campaign shots, details, and raw moments.
+        </p>
+        <div id="gallery-grid" class="gallery-grid">
+        <!-- Thumbnails injected by JS -->
+        </div>
+    </section>
 
-        What made Misunderstood World stand out wasn't just the clothes. It was the message behind them. It represented
-        every person who had ever been judged too quickly, every idea that was dismissed too early, every voice that
-        didn't fit the mold.
-    </p>
-    </br>
-    <p>
-        The brand grew, not through hype, but through connection. No loud marketing. No chasing clout. Just consistency,
-        identity, and a silent confidence that spoke volumes.
+    <section id="about" class="section about">
+      <h2>About Misunderstood World</h2>
+      <p>
+        Misunderstood World is a brand for the outsiders, the misfits, and the
+        beautifully complicated. Every piece has a story that doesn't fit
+        neatly into boxes.
+      </p>
+    </section>
+  </main>
 
-        Years later, Misunderstood World still carries that same energy. Minimal, but never empty. Quiet, but never
-        weak. Built from the idea that being misunderstood isn't a flaw, it's a sign you were never meant to blend in.
-    </p>
+    <!-- Card modal root -->
+    <div id="modal-root"></div>
 
+    <!-- NEW: Lightbox root for gallery -->
+    <div id="lightbox-root"></div>
 
-    <script>
-        const hamburger = document.queryselector('.hamburger');
-        const navlinks = document.queryselector('.nav-links');
-        const menuBackdrop = document.queryselector('.menu-backdrop');
-
-        hamburger.addeventListener('click', () => {
-            hamburger.classlist.toggle('active');
-            navLinks.classlist.toggle('active');
-            menuBackdrop.classList.toggle('active');
-        });
-        // close menu when clicking on backdrop//
-        menuBackdrop.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-            menuBackdrop.classList.remove('active');
-        });
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classlist.remove('active');
-                navLinks.classList.remove('active');
-                menuBackdrop.classList.remove('active');
-            });
-        });
-    </script>
+    <script src="main.js"></script>
 </body>
-
 </html>
